@@ -17,21 +17,30 @@ if(is_admin()){
 	
 	
 	/**
-	 * country_admin_menu
-	 * 
+	 * Countries Admin Menu
+	 *
 	 * Adds XML Importer admin page.
 	 * 
-	 * @since 1.0.x
+	 * @since 1.0
 	 */
 	function country_admin_menu() {
-		
-		require_once( 'admin-pages/display-country-admin.php' );
-		add_submenu_page( 'edit.php?post_type=countries', __( 'Countries Importer', 'countries-importer' ), __( 'Countries Importer', 'countries-importer' ), 7, 'countries_importer_page', 'countries_importer_page' );
-	
+		add_submenu_page( 'edit.php?post_type=countries', __( 'Countries Importer', 'countries' ), __( 'Countries Importer', 'countries' ), 7, 'countries_importer_page', 'countries_importer_page' );
 	}
 	add_action( 'admin_menu', 'country_admin_menu' );
 	
-	
+	/**
+	 * Countries Import Page
+	 */
+	function countries_importer_page() {
+		include_once( plugin_dir_path( __FILE__ ) . 'includes/xml-parser.php' );
+		$xml = new Countries_XML_Parser();
+		?>
+		<div class="wrap">
+			<h2><?php _e( 'Country Importer', 'countries' ); ?></h2>
+			<?php $xml->SaveInitialCountries(); ?>
+		</div>
+		<?php
+	}
 	
 	/**
 	 * countries_posts_orderby
