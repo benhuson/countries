@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8" ?>
+	<countries>
+		<country countryname="Afghanistan" countrycode="AF" monetarysymbol="" monetarycode="AFA" monetaryhtmlcode="" monetarylongname="Afghanistan Afghani"></country>
+		<country countryname="Albania" countrycode="AL" monetarysymbol="" monetarycode="ALL" monetaryhtmlcode="" monetarylongname="Albanian Lek"></country>
+		<country countryname="Algeria" countrycode="DZ" monetarysymbol="" monetarycode="DZD" monetaryhtmlcode="" monetarylongname="Algerian Dinar"></country>
+		<country countryname="American Samoa" countrycode="AS" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Andorra" countrycode="AD" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Angola" countrycode="AO" monetarysymbol="" monetarycode="AON" monetaryhtmlcode="" monetarylongname="Angolan New Kwanza"></country>
+		<country countryname="Anguilla" countrycode="AI" monetarysymbol="$" monetarycode="XCD" monetaryhtmlcode="&#036;" monetarylongname="East Caribbean Dollar"></country>
+		<country countryname="Antarctica" countrycode="AQ" monetarysymbol="$" monetarycode="ATA" monetaryhtmlcode="&#036;" monetarylongname="Dollar"></country>
+		<country countryname="Antigua and Barbuda" countrycode="AG" monetarysymbol="$" monetarycode="XCD" monetaryhtmlcode="&#036;" monetarylongname="East Caribbean Dollar"></country>
+		<country countryname="Argentina" countrycode="AR" monetarysymbol="" monetarycode="ARS" monetaryhtmlcode="" monetarylongname="Argentine Peso"></country>
+		<country countryname="Armenia" countrycode="AM" monetarysymbol="" monetarycode="AMD" monetaryhtmlcode="" monetarylongname="Armenian Dram"></country>
+		<country countryname="Aruba" countrycode="AW" monetarysymbol="" monetarycode="AWG" monetaryhtmlcode="" monetarylongname="Aruban Guilder"></country>
+		<country countryname="Australia" countrycode="AU" monetarysymbol="$" monetarycode="AUD" monetaryhtmlcode="&#036;" monetarylongname="Australian Dollar"></country>
+		<country countryname="Austria" countrycode="AT" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Azerbaijan" countrycode="AZ" monetarysymbol="" monetarycode="AZM" monetaryhtmlcode="" monetarylongname="Azerbaijanian Manat"></country>
+		<country countryname="Bahamas" countrycode="BS" monetarysymbol="$" monetarycode="BSD" monetaryhtmlcode="&#036;" monetarylongname="Bahamian Dollar"></country>
+		<country countryname="Bahrain" countrycode="BH" monetarysymbol="" monetarycode="BHD" monetaryhtmlcode="" monetarylongname="Bahraini Dinar"></country>
+		<country countryname="Bangladesh" countrycode="BD" monetarysymbol="" monetarycode="BDT" monetaryhtmlcode="" monetarylongname="Bangladeshi Taka"></country>
+		<country countryname="Barbados" countrycode="BB" monetarysymbol="$" monetarycode="BBD" monetaryhtmlcode="&#036;" monetarylongname="Barbados Dollar"></country>
+		<country countryname="Belarus" countrycode="BY" monetarysymbol="" monetarycode="BYB" monetaryhtmlcode="" monetarylongname="Belarussian Ruble"></country>
+		<country countryname="Belgium" countrycode="BE" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Belize" countrycode="BZ" monetarysymbol="$" monetarycode="BZD" monetaryhtmlcode="&#036;" monetarylongname="Belize Dollar"></country>
+		<country countryname="Benin" countrycode="BJ" monetarysymbol="" monetarycode="XOF" monetaryhtmlcode="" monetarylongname="CFA Franc BCEAO"></country>
+		<country countryname="Bermuda" countrycode="BM" monetarysymbol="$" monetarycode="BMD" monetaryhtmlcode="&#036;" monetarylongname="Bermudian Dollar"></country>
+		<country countryname="Bhutan" countrycode="BT" monetarysymbol="" monetarycode="BTN" monetaryhtmlcode="" monetarylongname="Bhutan Ngultrum"></country>
+		<country countryname="Bolivia" countrycode="BO" monetarysymbol="" monetarycode="BOB" monetaryhtmlcode="" monetarylongname="Boliviano"></country>
+		<country countryname="Bosnia-Herzegovina" countrycode="BA" monetarysymbol="" monetarycode="BAM" monetaryhtmlcode="" monetarylongname="Marka"></country>
+		<country countryname="Botswana" countrycode="BW" monetarysymbol="" monetarycode="BWP" monetaryhtmlcode="" monetarylongname="Botswana Pula"></country>
+		<country countryname="Bouvet Island" countrycode="BV" monetarysymbol="" monetarycode="NOK" monetaryhtmlcode="" monetarylongname="Norwegian Krone"></country>
+		<country countryname="Brazil" countrycode="BR" monetarysymbol="" monetarycode="BRL" monetaryhtmlcode="" monetarylongname="Brazilian Real"></country>
+		<country countryname="British Indian Ocean Territory" countrycode="IO" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Brunei Darussalam" countrycode="BN" monetarysymbol="$" monetarycode="BND" monetaryhtmlcode="&#036;" monetarylongname="Brunei Dollar"></country>
+		<country countryname="Bulgaria" countrycode="BG" monetarysymbol="" monetarycode="BGL" monetaryhtmlcode="" monetarylongname="Bulgarian Lev"></country>
+		<country countryname="Burkina Faso" countrycode="BF" monetarysymbol="" monetarycode="XOF" monetaryhtmlcode="" monetarylongname="CFA Franc BCEAO"></country>
+		<country countryname="Burundi" countrycode="BI" monetarysymbol="" monetarycode="BIF" monetaryhtmlcode="" monetarylongname="Burundi Franc"></country>
+		<country countryname="Cambodia" countrycode="KH" monetarysymbol="" monetarycode="KHR" monetaryhtmlcode="" monetarylongname="Kampuchean Riel"></country>
+		<country countryname="Cameroon" countrycode="CM" monetarysymbol="" monetarycode="XAF" monetaryhtmlcode="" monetarylongname="CFA Franc BEAC"></country>
+		<country countryname="Canada" countrycode="CA" monetarysymbol="$" monetarycode="CAD" monetaryhtmlcode="&#036;" monetarylongname="Canadian Dollar">
+			<city name="Alberta" code="AB"></city>
+			<city name="British Columbia" code="BC"></city>
+			<city name="Manitoba" code="MB"></city>
+			<city name="New Brunswick" code="NK"></city>
+			<city name="Newfoundland" code="NF"></city>
+			<city name="Northwest Territories" code="NT"></city>
+			<city name="Nova Scotia" code="NS"></city>
+			<city name="Nunavut" code="NU"></city>
+			<city name="Ontario" code="ON"></city>
+			<city name="Prince Edward Island" code="PE"></city>
+			<city name="Quebec" code="PQ"></city>
+			<city name="Saskatchewan" code="SN"></city>
+			<city name="Yukon" code="YT"></city>
+		</country>
+		<country countryname="Cape Verde" countrycode="CV" monetarysymbol="" monetarycode="CVE" monetaryhtmlcode="" monetarylongname="Cape Verde Escudo"></country>
+		<country countryname="Cayman Islands" countrycode="KY" monetarysymbol="$" monetarycode="KYD" monetaryhtmlcode="&#036;" monetarylongname="Cayman Islands Dollar"></country>
+		<country countryname="Central African Republic" countrycode="CF" monetarysymbol="" monetarycode="XAF" monetaryhtmlcode="" monetarylongname="CFA Franc BEAC"></country>
+		<country countryname="Chad" countrycode="TD" monetarysymbol="" monetarycode="XAF" monetaryhtmlcode="" monetarylongname="CFA Franc BEAC"></country>
+		<country countryname="Chile" countrycode="CL" monetarysymbol="" monetarycode="CLP" monetaryhtmlcode="" monetarylongname="Chilean Peso"></country>
+		<country countryname="China" countrycode="CN" monetarysymbol="" monetarycode="CNY" monetaryhtmlcode="" monetarylongname="Yuan Renminbi"></country>
+		<country countryname="Christmas Island" countrycode="CX" monetarysymbol="$" monetarycode="AUD" monetaryhtmlcode="&#036;" monetarylongname="Australian Dollar"></country>
+		<country countryname="Cocos (Keeling) Islands" countrycode="CC" monetarysymbol="$" monetarycode="AUD" monetaryhtmlcode="&#036;" monetarylongname="Australian Dollar"></country>
+		<country countryname="Colombia" countrycode="CO" monetarysymbol="" monetarycode="COP" monetaryhtmlcode="" monetarylongname="Colombian Peso"></country>
+		<country countryname="Comoros" countrycode="KM" monetarysymbol="" monetarycode="KMF" monetaryhtmlcode="" monetarylongname="Comoros Franc"></country>
+		<country countryname="Congo" countrycode="CG" monetarysymbol="" monetarycode="XAF" monetaryhtmlcode="" monetarylongname="CFA Franc BEAC"></country>
+		<country countryname="Cook Islands" countrycode="CK" monetarysymbol="$" monetarycode="NZD" monetaryhtmlcode="&#036;" monetarylongname="New Zealand Dollar"></country>
+		<country countryname="Costa Rica" countrycode="CR" monetarysymbol="" monetarycode="CRC" monetaryhtmlcode="" monetarylongname="Costa Rican Colon"></country>
+		<country countryname="Croatia" countrycode="HR" monetarysymbol="" monetarycode="HRK" monetaryhtmlcode="" monetarylongname="Croatian Kuna"></country>
+		<country countryname="Cuba" countrycode="CU" monetarysymbol="" monetarycode="CUP" monetaryhtmlcode="" monetarylongname="Cuban Peso"></country>
+		<country countryname="Cyprus" countrycode="CY" monetarysymbol="" monetarycode="CYP" monetaryhtmlcode="" monetarylongname="Cyprus Pound"></country>
+		<country countryname="Czech Rep." countrycode="CZ" monetarysymbol="" monetarycode="CZK" monetaryhtmlcode="" monetarylongname="Czech Koruna"></country>
+		<country countryname="Democratic Republic of Congo" countrycode="CD" monetarysymbol="" monetarycode="CDF" monetaryhtmlcode="" monetarylongname="Francs"></country>
+		<country countryname="Denmark" countrycode="DK" monetarysymbol="" monetarycode="DKK" monetaryhtmlcode=""  monetarylongname="Danish Krone"></country>
+		<country countryname="Deutschland" countrycode="DE" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Djibouti" countrycode="DJ" monetarysymbol="" monetarycode="DJF" monetaryhtmlcode="" monetarylongname="Djibouti Franc"></country>
+		<country countryname="Dominica" countrycode="DM" monetarysymbol="$" monetarycode="XCD" monetaryhtmlcode="&#036;" monetarylongname="East Caribbean Dollar"></country>
+		<country countryname="Dominican Republic" countrycode="DO" monetarysymbol="" monetarycode="DOP" monetaryhtmlcode="" monetarylongname="Dominican Peso"></country>
+		<country countryname="East Timor" countrycode="TP" monetarysymbol="" monetarycode="TPE" monetaryhtmlcode="" monetarylongname="Timor Escudo"></country>
+		<country countryname="Ecuador" countrycode="EC" monetarysymbol="" monetarycode="ECS" monetaryhtmlcode="" monetarylongname="Ecuador Sucre"></country>
+		<country countryname="Egypt" countrycode="EG" monetarysymbol="" monetarycode="EGP" monetaryhtmlcode="" monetarylongname="Egyptian Pound"></country>
+		<country countryname="El Salvador" countrycode="SV" monetarysymbol="" monetarycode="SVC" monetaryhtmlcode="" monetarylongname="El Salvador Colon"></country>
+		<country countryname="Equatorial Guinea" countrycode="GQ" monetarysymbol="" monetarycode="XAF" monetaryhtmlcode="" monetarylongname="CFA Franc BEAC"></country>
+		<country countryname="Eritrea" countrycode="ER" monetarysymbol="" monetarycode="ERN" monetaryhtmlcode="" monetarylongname="Eritrean Nakfa"></country>
+		<country countryname="Estonia" countrycode="EE" monetarysymbol="" monetarycode="EEK" monetaryhtmlcode="" monetarylongname="Estonian Kroon"></country>
+		<country countryname="Ethiopia" countrycode="ET" monetarysymbol="" monetarycode="ETB" monetaryhtmlcode="" monetarylongname="Ethiopian Birr"></country>
+		<country countryname="Falkland Islands" countrycode="FK" monetarysymbol="" monetarycode="FKP" monetaryhtmlcode="" monetarylongname="Falkland Islands Pound"></country>
+		<country countryname="Faroe Islands" countrycode="FO" monetarysymbol="" monetarycode="DKK" monetaryhtmlcode="" monetarylongname="Danish Krone"></country>
+		<country countryname="Fiji" countrycode="FJ" monetarysymbol="$" monetarycode="FJD" monetaryhtmlcode="&#036;" monetarylongname="Fiji Dollar"></country> 
+		<country countryname="Finland" countrycode="FI" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="France" countrycode="FR" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="French Southern Territories" countrycode="TF" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Gabon" countrycode="GA" monetarysymbol="" monetarycode="XAF" monetaryhtmlcode="" monetarylongname="CFA Franc BEAC"></country>
+		<country countryname="Gambia" countrycode="GM" monetarysymbol="" monetarycode="GMD" monetaryhtmlcode="" monetarylongname="Gambian Dalasi"></country>
+		<country countryname="Georgia" countrycode="GE" monetarysymbol="" monetarycode="GEL" monetaryhtmlcode="" monetarylongname="Georgian Lari"></country>
+		<country countryname="Germany" countrycode="DE" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Ghana" countrycode="GH" monetarysymbol="" monetarycode="GHC" monetaryhtmlcode="" monetarylongname="Ghanaian Cedi"></country>
+		<country countryname="Gibraltar" countrycode="GI" monetarysymbol="" monetarycode="GIP" monetaryhtmlcode="" monetarylongname="Gibraltar Pound"></country>
+		<country countryname="Great Britain" countrycode="GB" monetarysymbol="£" monetarycode="GBP" monetaryhtmlcode="&#163;" monetarylongname="Pound Sterling"></country>
+		<country countryname="Greece" countrycode="GR" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Greenland" countrycode="GL" monetarysymbol="" monetarycode="DKK" monetaryhtmlcode="" monetarylongname="Danish Krone"></country>
+		<country countryname="Grenada" countrycode="GD" monetarysymbol="$" monetarycode="XCD" monetaryhtmlcode="&#036;" monetarylongname="East Carribean Dollar"></country>
+		<country countryname="Guadeloupe (French)" countrycode="GP" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Guam (USA)" countrycode="GU" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Guatemala" countrycode="GT" monetarysymbol="" monetarycode="QTQ" monetaryhtmlcode="" monetarylongname="Guatemalan Quetzal"></country>
+		<country countryname="Guernsey" countrycode="GF" monetarysymbol="£" monetarycode="GBP" monetaryhtmlcode="&#163;" monetarylongname="Pound Sterling"></country>
+		<country countryname="Guinea" countrycode="GN" monetarysymbol="" monetarycode="GNF" monetaryhtmlcode="" monetarylongname="Guinea Franc"></country>
+		<country countryname="Guinea Bissau" countrycode="GW" monetarysymbol="" monetarycode="GWP" monetaryhtmlcode="" monetarylongname="Guinea-Bissau Peso"></country>
+		<country countryname="Guyana" countrycode="GY" monetarysymbol="$" monetarycode="GYD" monetaryhtmlcode="&#036;" monetarylongname="Guyana Dollar"></country>
+		<country countryname="Haiti" countrycode="HT" monetarysymbol="" monetarycode="HTG" monetaryhtmlcode="" monetarylongname="Haitian Gourde"></country>
+		<country countryname="Heard Island and McDonald Islands" countrycode="HM" monetarysymbol="$" monetarycode="AUD" monetaryhtmlcode="&#036;" monetarylongname="Australian Dollar"></country>
+		<country countryname="Honduras" countrycode="HN" monetarysymbol="" monetarycode="HNL" monetaryhtmlcode="" monetarylongname="Honduran Lempira"></country>
+		<country countryname="Hong Kong" countrycode="HK" monetarysymbol="$" monetarycode="HKD" monetaryhtmlcode="&#036;" monetarylongname="Hong Kong Dollar"></country>
+		<country countryname="Hungary" countrycode="HU" monetarysymbol="" monetarycode="HUF" monetaryhtmlcode="" monetarylongname="Hungarian Forint"></country>
+		<country countryname="Iceland" countrycode="IS" monetarysymbol="" monetarycode="ISK" monetaryhtmlcode="" monetarylongname="Iceland Krona"></country>
+		<country countryname="India" countrycode="IN" monetarysymbol="" monetarycode="INR" monetaryhtmlcode="" monetarylongname="Indian Rupee"></country>
+		<country countryname="Indonesia" countrycode="ID" monetarysymbol="" monetarycode="IDR" monetaryhtmlcode="" monetarylongname="Indonesian Rupiah"></country>
+		<country countryname="Iran" countrycode="IR" monetarysymbol="" monetarycode="IRR" monetaryhtmlcode="" monetarylongname="Iranian Rial"></country>
+		<country countryname="Iraq" countrycode="IQ" monetarysymbol="" monetarycode="IQD" monetaryhtmlcode="" monetarylongname="Iraqi Dinar"></country>
+		<country countryname="Ireland" countrycode="IE" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Isle of Man" countrycode="IM" monetarysymbol="£" monetarycode="GBP" monetaryhtmlcode="&#163;" monetarylongname="Pound Sterling"></country>
+		<country countryname="Israel" countrycode="IL" monetarysymbol="" monetarycode="ILS" monetaryhtmlcode="" monetarylongname="Israeli New Shekel"></country> 
+		<country countryname="Italy" countrycode="IT" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Ivory Coast" countrycode="CI" monetarysymbol="" monetarycode="XOF" monetaryhtmlcode="" monetarylongname="CFA Franc BCEAO"></country>
+		<country countryname="Jamaica" countrycode="JM" monetarysymbol="$" monetarycode="JMD" monetaryhtmlcode="&#036;" monetarylongname="Jamaican Dollar"></country>
+		<country countryname="Japan" countrycode="JP" monetarysymbol="¥" onetarycode="JPY" monetaryhtmlcode="&#165;" monetarylongname="Japanese Yen"></country>
+		<country countryname="Jersey" countrycode="JE" monetarysymbol="£"  monetarycode="GBP" monetaryhtmlcode="&#163;" monetarylongname="Pound Sterling"></country>
+		<country countryname="Jordan" countrycode="JO" monetarysymbol="" monetarycode="JOD" monetaryhtmlcode="" monetarylongname="Jordanian Dinar"></country>
+		<country countryname="Kazakhstan" countrycode="KZ" monetarysymbol="" monetarycode="KZT" monetaryhtmlcode="" monetarylongname="Kazakhstan Tenge"></country>
+		<country countryname="Kenya" countrycode="KE" monetarysymbol="" monetarycode="KES" monetaryhtmlcode="" monetarylongname="Kenyan Shilling"></country>
+		<country countryname="Kiribati" countrycode="KI" monetarysymbol="$" monetarycode="AUD" monetaryhtmlcode="&#036;" monetarylongname="Australian Dollar"></country>
+		<country countryname="Korea, North" countrycode="KP" monetarysymbol="" monetarycode="KPW" monetaryhtmlcode="" monetarylongname="North Korean Won"></country>
+		<country countryname="Korea, South" countrycode="KR" monetarysymbol="" monetarycode="KRW" monetaryhtmlcode="" monetarylongname="Korean Won"></country>
+		<country countryname="Kuwait" countrycode="KW" monetarysymbol="" monetarycode="KWD" monetaryhtmlcode="" monetarylongname="Kuwaiti Dinar"></country>
+		<country countryname="Kyrgyzstan" countrycode="KG" monetarysymbol="" monetarycode="KGS" monetaryhtmlcode="" monetarylongname="Som"></country>
+		<country countryname="Laos" countrycode="LA" monetarysymbol="" monetarycode="LAK" monetaryhtmlcode="" monetarylongname="Lao Kip"></country>
+		<country countryname="Latvia" countrycode="LV" monetarysymbol="" monetarycode="LVL" monetaryhtmlcode="" monetarylongname="Latvian Lats"></country>
+		<country countryname="Lebanon" countrycode="LB" monetarysymbol="" monetarycode="LBP" monetaryhtmlcode="" monetarylongname="Lebanese Pound"></country>
+		<country countryname="Lesotho" countrycode="LS" monetarysymbol="" monetarycode="LSL" monetaryhtmlcode="" monetarylongname="Lesotho Loti"></country>
+		<country countryname="Liberia" countrycode="LR" monetarysymbol="$" monetarycode="LRD" monetaryhtmlcode="&#036;" monetarylongname="Liberian Dollar"></country>
+		<country countryname="Libya" countrycode="LY" monetarysymbol="" monetarycode="LYD" monetaryhtmlcode="" monetarylongname="Libyan Dinar"></country>
+		<country countryname="Liechtenstein" countrycode="LI" monetarysymbol="" monetarycode="CHF" monetaryhtmlcode="" monetarylongname="Swiss Franc"></country>
+		<country countryname="Lithuania" countrycode="LT" monetarysymbol="" monetarycode="LTL" monetaryhtmlcode="" monetarylongname="Lithuanian Litas"></country>
+		<country countryname="Luxembourg" countrycode="LU" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Macau" countrycode="MO" monetarysymbol="" monetarycode="MOP" monetaryhtmlcode="" monetarylongname="Macau Pataca"></country>
+		<country countryname="Macedonia" countrycode="MK" monetarysymbol=""  monetarycode="MKD" monetaryhtmlcode="" monetarylongname="Denar"></country>
+		<country countryname="Madagascar" countrycode="MG" monetarysymbol="" monetarycode="MGF" monetaryhtmlcode="" monetarylongname="Malagasy Franc"></country>
+		<country countryname="Malawi" countrycode="MW" monetarysymbol="" monetarycode="MWK" monetaryhtmlcode="" monetarylongname="Malawi Kwacha"></country>
+		<country countryname="Malaysia" countrycode="MY" monetarysymbol="" monetarycode="MYR" monetaryhtmlcode="" monetarylongname="Malaysian Ringgit"></country>
+		<country countryname="Maldives" countrycode="MV" monetarysymbol="" monetarycode="MVR" monetaryhtmlcode="" monetarylongname="Maldive Rufiyaa"></country>
+		<country countryname="Mali" countrycode="ML" monetarysymbol="" monetarycode="XOF" monetaryhtmlcode="" monetarylongname="CFA Franc BCEAO"></country>
+		<country countryname="Malta" countrycode="MT" monetarysymbol="" monetarycode="MTL" monetaryhtmlcode="" monetarylongname="Maltese Lira"></country>
+		<country countryname="Marshall Islands" countrycode="MH" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Martinique (French)" countrycode="MQ" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Mauritania" countrycode="MR" monetarysymbol="" monetarycode="MRO" monetaryhtmlcode="" monetarylongname="Mauritanian Ouguiya"></country>
+		<country countryname="Mauritius" countrycode="MU" monetarysymbol="" monetarycode="MUR" monetaryhtmlcode="" monetarylongname="Mauritius Rupee"></country>
+		<country countryname="Mayotte" countrycode="YT" monetarysymbol="€"  monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Mexico" countrycode="MX" monetarysymbol="" monetarycode="MXN" monetaryhtmlcode="" monetarylongname="Mexican Nuevo Peso"></country>
+		<country countryname="Micronesia" countrycode="FM" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;"  monetarylongname="US Dollar"></country>
+		<country countryname="Moldova" countrycode="MD" monetarysymbol="" monetarycode="MDL" monetaryhtmlcode="" monetarylongname="Moldovan Leu"></country>
+		<country countryname="Monaco" countrycode="MC" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Mongolia" countrycode="MN" monetarysymbol="" monetarycode="MNT" monetaryhtmlcode="" monetarylongname="Mongolian Tugrik"></country>
+		<country countryname="Montserrat" countrycode="MS" monetarysymbol="$" monetarycode="XCD" monetaryhtmlcode="&#036;" monetarylongname="East Caribbean Dollar"></country>
+		<country countryname="Morocco" countrycode="MA" monetarysymbol="" monetarycode="MAD" monetaryhtmlcode="" monetarylongname="Moroccan Dirham"></country>
+		<country countryname="Mozambique" countrycode="MZ" monetarysymbol="" monetarycode="MZM" monetaryhtmlcode="" monetarylongname="Mozambique Metical"></country>
+		<country countryname="Myanmar" countrycode="MM" monetarysymbol="" monetarycode="MMK" monetaryhtmlcode="" monetarylongname="Myanmar Kyat"></country>
+		<country countryname="Namibia" countrycode="NA" monetarysymbol="$" monetarycode="NAD" monetaryhtmlcode="&#036;" monetarylongname="Namibian Dollar"></country>
+		<country countryname="Nauru" countrycode="NR" monetarysymbol="$" monetarycode="AUD" monetaryhtmlcode="&#036;" monetarylongname="Australian Dollar"></country>
+		<country countryname="Nepal" countrycode="NP" monetarysymbol="" monetarycode="NPR" monetaryhtmlcode="" monetarylongname="Nepalese Rupee"></country>
+		<country countryname="Netherlands" countrycode="NL" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Netherlands Antilles" countrycode="AN" monetarysymbol="" monetarycode="ANG" monetaryhtmlcode="" monetarylongname="Netherlands Antillean Guilder"></country>
+		<country countryname="New Caledonia (French)" countrycode="NC" monetarysymbol="" monetarycode="XPF" monetaryhtmlcode="" monetarylongname="CFP Franc"></country>
+		<country countryname="New Zealand" countrycode="NZ" monetarysymbol="$" monetarycode="NZD" monetaryhtmlcode="&#036;" monetarylongname="New Zealand Dollar">
+			<city name="Auckland" code="AK"></city>
+			<city name="Wellington" code="WGT"></city>
+			<city name="Christchurch" code="CH"></city>
+			<city name="Napier" code="NP"></city>
+			<city name="Palmerston North" code="PN"></city>
+			<city name="Dunedin" code="DU"></city>
+		</country>
+		<country countryname="Nicaragua" countrycode="NI" monetarysymbol="" monetarycode="NIC" monetaryhtmlcode="" monetarylongname="Nicaraguan Cordoba Oro"></country>
+		<country countryname="Niger" countrycode="NE" monetarysymbol="" monetarycode="XOF" monetaryhtmlcode="" monetarylongname="CFA Franc BCEAO"></country>
+		<country countryname="Nigeria" countrycode="NG" monetarysymbol="" monetarycode="NGN" monetaryhtmlcode="" monetarylongname="Nigerian Naira"></country>
+		<country countryname="Niue" countrycode="NU" monetarysymbol="$" monetarycode="NZD" monetaryhtmlcode="&#036;" monetarylongname="New Zealand Dollar"></country>
+		<country countryname="Norfolk Island" countrycode="NF" monetarysymbol="$" monetarycode="AUD" monetaryhtmlcode="&#036;" monetarylongname="Australian Dollar"></country>
+		<country countryname="Northern Mariana Islands" countrycode="MP" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Norway" countrycode="NO" monetarysymbol="" monetarycode="NOK" monetaryhtmlcode="" monetarylongname="Norwegian Krone"></country>
+		<country countryname="Oman" countrycode="OM" monetarysymbol="" monetarycode="OMR" monetaryhtmlcode="" monetarylongname="Omani Rial"></country>
+		<country countryname="Pakistan" countrycode="PK" monetarysymbol="" monetarycode="PKR" monetaryhtmlcode="" monetarylongname="Pakistan Rupee"></country>
+		<country countryname="Palau" countrycode="PW" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Panama" countrycode="PA" monetarysymbol="" monetarycode="PAB" monetaryhtmlcode="" monetarylongname="Panamanian Balboa"></country>
+		<country countryname="Papua New Guinea" countrycode="PG" monetarysymbol="" monetarycode="PGK" monetaryhtmlcode="" monetarylongname="Papua New Guinea Kina"></country>
+		<country countryname="Paraguay" countrycode="PY" monetarysymbol="" monetarycode="PYG" monetaryhtmlcode="" monetarylongname="Paraguay Guarani"></country>
+		<country countryname="Peru" countrycode="PE" monetarysymbol="" monetarycode="PEN" monetaryhtmlcode="" monetarylongname="Peruvian Nuevo Sol"></country>
+		<country countryname="Philippines" countrycode="PH" monetarysymbol="" monetarycode="PHP" monetaryhtmlcode="" monetarylongname="Philippine Peso"></country>
+		<country countryname="Pitcairn Island" countrycode="PN" monetarysymbol="$" monetarycode="NZD" monetaryhtmlcode="&#036;" monetarylongname="New Zealand Dollar"></country>
+		<country countryname="Poland" countrycode="PL" monetarysymbol="" monetarycode="PLN" monetaryhtmlcode="" monetarylongname="Polish Zloty"></country>
+		<country countryname="Polynesia (French)" countrycode="PF" monetarysymbol="" monetarycode="XPF" monetaryhtmlcode="" monetarylongname="CFP Franc"></country>
+		<country countryname="Portugal" countrycode="PT" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Puerto Rico" countrycode="PR" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Qatar" countrycode="QA" monetarysymbol="" monetarycode="QAR" monetaryhtmlcode="" monetarylongname="Qatari Rial"></country>
+		<country countryname="Reunion (French)" countrycode="RE" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Romania" countrycode="RO" monetarysymbol="" monetarycode="RON" monetaryhtmlcode="" monetarylongname="Romanian Leu"></country>
+		<country countryname="Russia" countrycode="RU" monetarysymbol="" monetarycode="RUR" monetaryhtmlcode="" monetarylongname="Russian Ruble"></country>
+		<country countryname="Rwanda" countrycode="RW" monetarysymbol="" monetarycode="RWF" monetaryhtmlcode="" monetarylongname="Rwanda Franc"></country>
+		<country countryname="Saint Helena" countrycode="SH" monetarysymbol="" monetarycode="SHP" monetaryhtmlcode="" monetarylongname="St. Helena Pound"></country>
+		<country countryname="Saint Kitts And Nevis Anguilla" countrycode="KN" monetarysymbol="$" monetarycode="XCD" monetaryhtmlcode="&#036;" monetarylongname="East Caribbean Dollar"></country>
+		<country countryname="Saint Lucia" countrycode="LC" monetarysymbol="$" monetarycode="XCD" monetaryhtmlcode="&#036;" monetarylongname="East Caribbean Dollar"></country>
+		<country countryname="Saint Pierre and Miquelon" countrycode="PM" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Saint Vincent And Grenadines" countrycode="VC" monetarysymbol="$" monetarycode="XCD" monetaryhtmlcode="&#036;" monetarylongname="East Caribbean Dollar"></country>
+		<country countryname="Samoa" countrycode="WS" monetarysymbol="" monetarycode="WST" monetaryhtmlcode="" monetarylongname="Samoan Tala"></country>
+		<country countryname="San Marino" countrycode="SM" monetarysymbol="" monetarycode="ITL" monetaryhtmlcode="" monetarylongname="Italian Lira"></country>
+		<country countryname="Sao Tome and Principe" countrycode="ST" monetarysymbol="" monetarycode="STD" monetaryhtmlcode="" monetarylongname="Dobra"></country>
+		<country countryname="Saudi Arabia" countrycode="SA" monetarysymbol="" monetarycode="SAR" monetaryhtmlcode="" monetarylongname="Saudi Riyal"></country>
+		<country countryname="Senegal" countrycode="SN" monetarysymbol="" monetarycode="XOF" monetaryhtmlcode="" monetarylongname="CFA Franc BCEAO"></country>
+		<country countryname="Seychelles" countrycode="SC" monetarysymbol="" monetarycode="SCR" monetaryhtmlcode="" monetarylongname="Seychelles Rupee"></country>
+		<country countryname="Sierra Leone" countrycode="SL" monetarysymbol="" monetarycode="SLL" monetaryhtmlcode="" monetarylongname="Sierra Leone Leone"></country>
+		<country countryname="Singapore" countrycode="SG" monetarysymbol="$" monetarycode="SGD" monetaryhtmlcode="&#036;" monetarylongname="Singapore Dollar"></country>
+		<country countryname="Slovakia" countrycode="SK" monetarysymbol="" monetarycode="SKK" monetaryhtmlcode="" monetarylongname="Slovak Koruna"></country>
+		<country countryname="Slovenia" countrycode="SI" monetarysymbol="" monetarycode="SIT" monetaryhtmlcode="" monetarylongname="Slovenian Tolar"></country>
+		<country countryname="Solomon Islands" countrycode="SB" monetarysymbol="$" monetarycode="SBD" monetaryhtmlcode="&#036;" monetarylongname="Solomon Islands Dollar"></country>
+		<country countryname="Somalia" countrycode="SO" monetarysymbol="" monetarycode="SOD" monetaryhtmlcode="" monetarylongname="Somali Shilling"></country>
+		<country countryname="South Africa" countrycode="ZA" monetarysymbol="" monetarycode="ZAR" monetaryhtmlcode="" monetarylongname="South African Rand"></country>
+		<country countryname="South Georgia And South Sandwich Islands" countrycode="GS" monetarysymbol="£" monetarycode="GBP" monetaryhtmlcode="&#163;" monetarylongname="Pound Sterling"></country>
+		<country countryname="Spain" countrycode="ES" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Sri Lanka" countrycode="LK" monetarysymbol="" monetarycode="LKR" monetaryhtmlcode="" monetarylongname="Sri Lanka Rupee"></country>
+		<country countryname="Sudan" countrycode="SD" monetarysymbol="" monetarycode="SDD" monetaryhtmlcode="" monetarylongname="Sudanese Dinar"></country>
+		<country countryname="Suriname" countrycode="SR" monetarysymbol="" monetarycode="SRG" monetaryhtmlcode="" monetarylongname="Surinam Guilder"></country>
+		<country countryname="Svalbard and Jan Mayen Islands" countrycode="SJ" monetarysymbol="" monetarycode="NOK" monetaryhtmlcode="" monetarylongname="Norwegian Krone"></country>
+		<country countryname="Swaziland" countrycode="SZ" monetarysymbol="" monetarycode="SZL" monetaryhtmlcode="" monetarylongname="Swaziland Lilangeni"></country>
+		<country countryname="Sweden" countrycode="SE" monetarysymbol="" monetarycode="SEK" monetaryhtmlcode="" monetarylongname="Swedish Krona"></country>
+		<country countryname="Switzerland" countrycode="CH" monetarysymbol="" monetarycode="CHF" monetaryhtmlcode="" monetarylongname="Swiss Franc"></country>
+		<country countryname="Syria" countrycode="SY" monetarysymbol="" monetarycode="SYP" monetaryhtmlcode="" monetarylongname="Syrian Pound"></country>
+		<country countryname="Taiwan" countrycode="TW" monetarysymbol="$" monetarycode="TWD" monetaryhtmlcode="&#036;" monetarylongname="Taiwan Dollar"></country>
+		<country countryname="Tajikistan" countrycode="TJ" monetarysymbol="" monetarycode="TJR" monetaryhtmlcode="" monetarylongname="Tajik Ruble"></country>
+		<country countryname="Tanzania" countrycode="TZ" monetarysymbol="" monetarycode="TZS" monetaryhtmlcode="" monetarylongname="Tanzanian Shilling"></country>
+		<country countryname="Thailand" countrycode="TH" monetarysymbol="" monetarycode="THB" monetaryhtmlcode="" monetarylongname="Thai Baht"></country>
+		<country countryname="Togo" countrycode="TG" monetarysymbol="" monetarycode="XOF" monetaryhtmlcode="" monetarylongname="CFA Franc BCEAO"></country>
+		<country countryname="Tokelau" countrycode="TK" monetarysymbol="$" monetarycode="NZD" monetaryhtmlcode="&#036;" monetarylongname="New Zealand Dollar"></country>
+		<country countryname="Tonga" countrycode="TO" monetarysymbol="" monetarycode="TOP" monetaryhtmlcode="" monetarylongname="Tongan Pa&#699;anga"></country>
+		<country countryname="Trinidad and Tobago" countrycode="TT" monetarysymbol="$" monetarycode="TTD" monetaryhtmlcode="&#036;" monetarylongname="Trinidad and Tobago Dollar"></country>
+		<country countryname="Tunisia" countrycode="TN" monetarysymbol="$" monetarycode="TND" monetaryhtmlcode="&#036;" monetarylongname="Tunisian Dollar"></country>
+		<country countryname="Turkey" countrycode="TR" monetarysymbol="" monetarycode="TRL" monetaryhtmlcode="" monetarylongname="Turkish Lira"></country>
+		<country countryname="Turkmenistan" countrycode="TM" monetarysymbol="" monetarycode="TMM" monetaryhtmlcode="" monetarylongname="Manat"></country>
+		<country countryname="Turks and Caicos Islands" countrycode="TC" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Tuvalu" countrycode="TV" monetarysymbol="$" monetarycode="AUD" monetaryhtmlcode="&#036;" monetarylongname="Australian Dollar"></country>
+		<country countryname="U.K." countrycode="UK" monetarysymbol="£" monetarycode="GBP" monetaryhtmlcode="&#163;" monetarylongname="Pound Sterling"></country>
+		<country countryname="Uganda" countrycode="UG" monetarysymbol="" monetarycode="UGS" monetaryhtmlcode="" monetarylongname="Uganda Shilling"></country>
+		<country countryname="Ukraine" countrycode="UA" monetarysymbol="" monetarycode="UAG" monetaryhtmlcode="" monetarylongname="Ukraine Hryvnia"></country>
+		<country countryname="United Arab Emirates" countrycode="AE" monetarysymbol="" monetarycode="AED" monetaryhtmlcode="" monetarylongname="Arab Emirates Dirham"></country>
+		<country countryname="Uruguay" countrycode="UY" monetarysymbol="" monetarycode="UYP" monetaryhtmlcode="" monetarylongname="Uruguayan Peso"></country>
+		<country countryname="USA" countrycode="US" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar">
+			<city name="Alaska" code="AK"></city>
+			<city name="Arizona" code="AZ"></city>
+			<city name="Arkansas" code="AR"></city>
+			<city name="California" code="CA"></city>
+			<city name="Colorado" code="CO"></city>
+			<city name="Connecticut" code="CT"></city>
+			<city name="Delaware" code="DE"></city>
+			<city name="Florida" code="FL"></city>
+			<city name="Georgia" code="GA"></city>
+			<city name="Hawaii" code="HI"></city>
+			<city name="Idaho" code="ID"></city>
+			<city name="Illinois" code="IL"></city>
+			<city name="Indiana" code="IN"></city>
+			<city name="Iowa" code="IA"></city>
+			<city name="Kansas" code="KS"></city>
+			<city name="Kentucky" code="KY"></city>
+			<city name="Louisiana" code="LA"></city>
+			<city name="Maine" code="ME"></city>
+			<city name="Maryland" code="MD"></city>
+			<city name="Massachusetts" code="MA"></city>
+			<city name="Michigan" code="MI"></city>
+			<city name="Minnesota" code="MN"></city>
+			<city name="Mississippi" code="MS"></city>
+			<city name="Missouri" code="MO"></city>
+			<city name="Montana" code="MT"></city>
+			<city name="Nebraska" code="NE"></city>
+			<city name="Nevada" code="NV"></city>
+			<city name="New Hampshire" code="NH"></city>
+			<city name="New Jersey" code="NJ"></city>
+			<city name="New Mexico" code="NM"></city>
+			<city name="New York" code="NY"></city>
+			<city name="North Carolina" code="NC"></city>
+			<city name="North Dakota" code="ND"></city>
+			<city name="Ohio" code="OH"></city>
+			<city name="Oklahoma" code="OK"></city>
+			<city name="Oregon" code="OR"></city>
+			<city name="Pennsylvania" code="PA"></city>
+			<city name="Rhode Island" code="RI"></city>
+			<city name="South Carolina" code="SC"></city>
+			<city name="South Dakota" code="SD"></city>
+			<city name="Tennessee" code="TN"></city>
+			<city name="Texas" code="TX"></city>
+			<city name="Utah" code="UT"></city>
+			<city name="Vermont" code="VT"></city>
+			<city name="Virginia" code="VA"></city>
+			<city name="Washington" code="WA"></city>
+			<city name="Washington DC" code="DC"></city>
+			<city name="West Virginia" code="WV"></city>
+			<city name="Wisconsin" code="WI"></city>
+			<city name="Wyoming" code="WY"></city>
+		</country>
+		<country countryname="USA Minor Outlying Islands" countrycode="UM" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Uzbekistan" countrycode="UZ" monetarysymbol="" monetarycode="UZS" monetaryhtmlcode="" monetarylongname="Uzbekistan Sum"></country>
+		<country countryname="Vanuatu" countrycode="VU" monetarysymbol="" monetarycode="VUV" monetaryhtmlcode="" monetarylongname="Vanuatu Vatu"></country>
+		<country countryname="Vatican" countrycode="VA" monetarysymbol="€" monetarycode="EUR" monetaryhtmlcode="&#8364;" monetarylongname="Euro"></country>
+		<country countryname="Venezuela" countrycode="VE" monetarysymbol="" monetarycode="BsF" monetaryhtmlcode="" monetarylongname="Venezuelan Bolivar"></country>
+		<country countryname="Vietnam" countrycode="VN" monetarysymbol="" monetarycode="VND" monetaryhtmlcode="" monetarylongname="Vietnamese Dong"></country>
+		<country countryname="Virgin Islands (British)" countrycode="VG" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Virgin Islands (USA)" countrycode="VI" monetarysymbol="$" monetarycode="USD" monetaryhtmlcode="&#036;" monetarylongname="US Dollar"></country>
+		<country countryname="Wallis and Futuna Islands" countrycode="WF" monetarysymbol="" monetarycode="XPF" monetaryhtmlcode="" monetarylongname="CFP Franc"></country>
+		<country countryname="Western Sahara" countrycode="EH" monetarysymbol="" monetarycode="MAD" monetaryhtmlcode="" monetarylongname="Moroccan Dirham"></country>
+		<country countryname="Yemen" countrycode="YE" monetarysymbol="" monetarycode="YER" monetaryhtmlcode="" monetarylongname="Yemeni Rial"></country>
+		<country countryname="Yugoslavia" countrycode="YU" monetarysymbol="" monetarycode="YUN" monetaryhtmlcode="" monetarylongname="Yugoslav New Dinar"></country>
+		<country countryname="Zambia" countrycode="ZM" monetarysymbol="" monetarycode="ZMK" monetaryhtmlcode="" monetarylongname="Zambian Kwacha"></country>
+		<country countryname="Zimbabwe" countrycode="ZW" monetarysymbol="$" monetarycode="ZWD" monetaryhtmlcode="&#036;" monetarylongname="Zimbabwe Dollar"></country>
+	</countries>
