@@ -13,19 +13,23 @@ License: GPL2
 
 /* add importer admin pages */
 if(is_admin()){
-	//Add XML Importer admin page
-	function country_admin_pages(){
-		require_once("admin-pages/display-country-admin.php");
-		$base_page = 'countries-importer';
-		if (function_exists('add_object_page')) {
-
-			add_object_page(__('Countries Importer', 'countries-importer'), __('Countries Importer', 'countries-importer'), 2, 'countries_importer_page');
-			
-		} 
-		add_submenu_page($base_page, __('Countries Importer','countries-importer'),  __('Countries Importer','countries-importer'), 7, 'countries_importer_page', 'countries_importer_page');
+	
+	
+	
+	/**
+	 * country_admin_menu
+	 * 
+	 * Adds XML Importer admin page.
+	 * 
+	 * @since 1.0.x
+	 */
+	function country_admin_menu() {
+		
+		require_once( 'admin-pages/display-country-admin.php' );
+		add_submenu_page( 'edit.php?post_type=countries', __( 'Countries Importer', 'countries-importer' ), __( 'Countries Importer', 'countries-importer' ), 7, 'countries_importer_page', 'countries_importer_page' );
 	
 	}
-	add_action('admin_menu', 'country_admin_pages');
+	add_action( 'admin_menu', 'country_admin_menu' );
 	
 	
 	
