@@ -1,7 +1,7 @@
 <?php
 function countries_importer_page(){ 
 
-include_once WP_CONTENT_DIR.'/plugins/country/includes/xml-parser.php';
+include_once WP_CONTENT_DIR.'/plugins/countries/includes/xml-parser.php';
 $xml = new xmlParser();
 ?>
 <div class='wrap'>

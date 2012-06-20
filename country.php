@@ -154,7 +154,7 @@ function country_meta_boxes() {
  function loadCountriesFromXML()
 	{
 		$doc = new DOMDocument();
-		$doc->load(WP_CONTENT_DIR.'/plugins/country/xml/countrylist.xml' );
+		$doc->load(WP_CONTENT_DIR.'/plugins/countries/xml/countrylist.xml' );
 		
 		$rootnode = $doc->getElementsByTagName('countries')->item(0); 
 		
@@ -334,7 +334,7 @@ function render_flags_meta() {
 	$custom = get_post_custom($post->ID); 
 	$flag = $custom["country_code"][0];
 		
-	?><img name="flags" src=" <?php echo WP_CONTENT_URL.'/plugins/country/flags/'.strtolower($flag).'.gif' ?>" />
+	?><img name="flags" src=" <?php echo WP_CONTENT_URL.'/plugins/countries/flags/'.strtolower($flag).'.gif' ?>" />
 	<?php 
 	}
 

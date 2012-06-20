@@ -6,7 +6,7 @@ class xmlParser
  function loadCountriesFromXML()
 	{
 		$doc = new DOMDocument();
-		$doc->load(WP_CONTENT_DIR.'/plugins/country/xml/countrylist.xml' );
+		$doc->load(WP_CONTENT_DIR.'/plugins/countries/xml/countrylist.xml' );
 		
 		$rootnode = $doc->getElementsByTagName('countries')->item(0); 
 		
