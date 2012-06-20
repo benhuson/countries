@@ -10,28 +10,96 @@ Author URI: http://getshopped.org
 License: GPL2
 */
 
-
-/* add importer admin pages */
-if(is_admin()){
+class Countries {
 	
+	/**
+	 * Constructor
+	 */
+	function Countries() {
+		add_action( 'init', array( $this, 'register_post_types' ) );
+		add_action( 'parse_request', array( $this, 'hide_posts' ) );
+		if ( is_admin() ) {
+			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+			add_action( 'save_post', array( $this, 'save_details' ) );
+			add_filter( 'posts_orderby', array( $this, 'countries_orderby' ), 0, 1 );
+		}
+	}
 	
+	/**
+	 * Create custom post type and custom taxonomy
+	 * http://codex.wordpress.org/Function_Reference/register_post_type
+	 */
+	function register_post_types() {
+		$labels = array(
+			'name'               => _x( 'Countries', 'post type general name', 'countries' ),
+			'singular_name'      => _x( 'Country', 'post type singular name', 'countries' ),
+			'add_new'            => _x( 'Add New', 'Country', 'countries' ),
+			'add_new_item'       => __( 'Add New Country', 'countries' ),
+			'edit_item'          => __( 'Edit Country', 'countries' ),
+			'new_item'           => __( 'New Country', 'countries' ),
+			'view_item'          => __( 'View Country', 'countries' ),
+			'search_items'       => __( 'Search Countries', 'countries' ),
+			'not_found'          => __( 'No Countries found', 'countries' ),
+			'not_found_in_trash' => __( 'No Countries found in Trash', 'countries' ), 
+			'parent_item_colon'  => '',
+			'menu_name'          => __( 'Countries', 'countries' )
+		);
+		$args = array(
+			'labels'               => $labels,
+			'public'               => true,
+			'publicly_queryable'   => true,
+			'show_ui'              => true,  
+			'query_var'            => true,
+			'rewrite'              => true,
+			'capability_type'      => 'post',
+			'hierarchical'         => false,
+			'show_in_nav_menus'    => false,
+			'menu_position'        => null,
+			'menu_icon'            => plugins_url( 'images/menu-icon.png', __FILE__ ),
+			'supports'             => array( 'title' ),
+			'visible'              => true,
+			'register_meta_box_cb' => array( $this, 'country_meta_boxes' )
+		);
+		register_post_type( 'countries', $args );
+	}
+	
+	/**
+	 * Create Country Meta Boxes
+	 */
+	function country_meta_boxes() {
+		add_meta_box( 'countries_meta', __( 'Quick link - All Countries', 'countries' ), array( $this, 'render_countries_meta' ), 'countries', 'side', 'low' );
+		add_meta_box( 'countrycode_meta', __( 'Country code', 'countries' ), array( $this, 'render_countrycode_meta' ), 'countries', 'normal', 'low' );
+		add_meta_box( 'flags_meta', __( 'Country Flag', 'countries' ), array( $this, 'render_flags_meta' ), 'countries', 'normal', 'low' );
+		add_meta_box( 'currency_meta', __( 'Country Currency', 'countries' ), array( $this, 'render_currency_meta' ), 'countries', 'normal', 'low' );
+		add_meta_box( 'cities_meta', __( 'Country Cities', 'countries' ), array( $this, 'render_cities_meta' ), 'countries', 'normal', 'low' );
+		add_meta_box( 'details_meta', __( 'Country Notes', 'countries' ), array( $this, 'render_notes_meta' ), 'countries', 'normal', 'low' );
+	}
+	
+	/**
+	 * Hides posts on main page
+	 *
+	 * @todo Is there a better way to exclude?
+	 */
+	function hide_posts() {
+		global $query_string;
+		if ( ! is_admin() ) {
+			query_posts( $query_string . '&post_type!=countries' );
+		}
+	}
 	
 	/**
 	 * Countries Admin Menu
 	 *
 	 * Adds XML Importer admin page.
-	 * 
-	 * @since 1.0
 	 */
-	function country_admin_menu() {
-		add_submenu_page( 'edit.php?post_type=countries', __( 'Countries Importer', 'countries' ), __( 'Countries Importer', 'countries' ), 7, 'countries_importer_page', 'countries_importer_page' );
+	function admin_menu() {
+		add_submenu_page( 'edit.php?post_type=countries', __( 'Countries Importer', 'countries' ), __( 'Importer', 'countries' ), 7, 'countries-importer-page', array( $this, 'importer_page' ) );
 	}
-	add_action( 'admin_menu', 'country_admin_menu' );
 	
 	/**
 	 * Countries Import Page
 	 */
-	function countries_importer_page() {
+	function importer_page() {
 		include_once( plugin_dir_path( __FILE__ ) . 'includes/xml-parser.php' );
 		$xml = new Countries_XML_Parser();
 		?>
@@ -43,73 +111,237 @@ if(is_admin()){
 	}
 	
 	/**
-	 * countries_posts_orderby
+	 * Save Country Meta Box Details
+	 */
+	function save_details(){
+		global $post;
+		update_post_meta( $post->ID, 'country_code', $_POST['country_code'] );
+		update_post_meta( $post->ID, 'country_list', $_POST['country_list'] );
+		update_post_meta( $post->ID, 'flags', $_POST['flags'] );
+		update_post_meta( $post->ID, 'country_details', $_POST['country_details'] );
+		update_post_meta( $post->ID, 'country_currency', $_POST['country_currency'] );
+		update_post_meta( $post->ID, 'currency_symbol', $_POST['currency_symbol'] );
+		update_post_meta( $post->ID, 'currency_html', $_POST['currency_html'] );
+		update_post_meta( $post->ID, 'currency_code', $_POST['currency_code'] );
+		update_post_meta( $post->ID, 'city_list', $_POST['city_list'] );
+	}
+	
+	/**
+	 * Render Countries Meta Box
+	 *
+	 * Displays the dropdown list of countries.
+	 */
+	function render_countries_meta() {
+		global $post;
+		
+		$custom = get_post_custom( $post->ID );
+		$countrylist = $custom['country_list'][0];
+		$arrayofcountries = load_countries_from_xml();
+		
+		?>
+		<select name="country_list" style="width:265px;">
+			<?php
+			for ( $numerofcountries = 0; $numerofcountries <= count( $arrayofcountries ) -1; $numerofcountries++ ) {
+				if ( $countrycode == $arrayofcountries[$numerofcountries][0]['countrycode'] ) {
+					echo '<option selected="selected" value="' . $arrayofcountries[$numerofcountries][0]['countrycode'] . '">' . $arrayofcountries[$numerofcountries][0]['countryname'] . '</option>';
+				} else {
+					echo '<option value="' . $arrayofcountries[$numerofcountries][0]['countrycode'] . '">' . $arrayofcountries[$numerofcountries][0]['countryname'] . '</option>';
+				}
+			}
+			?>
+		</select>
+		<?php
+		echo '<p>' . __( 'Quick links to countries are in progress!', 'countries' ) . '</p>';
+	}
+	
+	/**
+	 * Render Country Code Meta Box
+	 */
+	function render_countrycode_meta() {
+		global $post;
+		
+		$custom = get_post_custom( $post->ID );
+		$country_code = $custom['country_code'][0];
+		?>
+		<input name="country_code" value="<?php echo $country_code; ?>" />
+		<?php
+	}
+	
+	/**
+	 * Render Country Flags Meta Box
+	 */
+	function render_flags_meta() {
+		global $post;
+		
+		$custom = get_post_custom( $post->ID );
+		$flag = $custom["country_code"][0];
+		?>
+		<img name="flags" src="<?php echo plugins_url( 'flags/' . strtolower( $flag ) . '.gif', __FILE__ ); ?>" />
+		<?php
+	}
+	
+	/**
+	 * Render the Country Currency Meta Box
+	 */
+	function render_currency_meta() {
+		global $post;
+		
+		$custom = get_post_custom( $post->ID );
+		$currency = $custom['country_currency'][0];
+		$currency_code = $custom['currency_code'][0];
+		$currency_symbol = $custom['currency_symbol'][0];
+		$currency_symbol_html = $custom['currency_html'][0];
+		//$currency = loadCurrencyFromXML();
+		
+		?>
+		<p><label for="country_symbol" style="width:145px; margin-top:6px; float:left; display: block"><?php _e( 'Currency', 'countries' ); ?></label> <input class="regular-text" name="country_currency" value="<?php echo $currencyl ?>" /></p>
+		<p><label for="country_symbol" style="width:145px; margin-top:6px; float:left; display: block"><?php _e( 'Currency Code', 'countries' ); ?></label> <input name="currency_code" value="<?php echo $currency_code; ?>" /></p>
+		<p><label for="country_symbol" style="width:145px; margin-top:6px; float:left; display: block"><?php _e( 'Currency Symbol', 'countries' ); ?></label> <input name="currency_symbol" value="<?php echo $currency_symbol; ?>" /></p>
+		<p><label for="country_html" style=" width:145px; margin-top:6px; float:left; display: block""><?php _e( 'Currency Symbol (HTML)', 'countries' ); ?></label> <input name="currency_html" style="-moz-border-radius:4px 4px 4px 4px;" value="<?php echo htmlentities( $currency_symbol_html ); ?>" /></p>
+		<?php
+	}
+	
+	/**
+	 * Render Cities Meta Box
+	 */
+	function render_cities_meta() {
+		global $post;
+		
+		$custom = get_post_custom( $post->ID );
+		$countrycode = $custom["country_code"][0];
+		$citycode = $custom["city_list"][0];
+		
+		$arrayofcountries = load_countries_from_xml();
+		
+		for ( $numerofcountries = 0; $numerofcountries <= count( $arrayofcountries ) - 1; $numerofcountries++ ) {
+			// If the country has cities...
+			if ( $countrycode == $arrayofcountries[$numerofcountries][0]['countrycode'] && count( $arrayofcountries[$numerofcountries][1] ) > 0 ) {
+				?>
+				<select name="city_list" style="width:265px;">
+					<?php
+					
+					for ( $nocities = 0; $nocities <= count( $arrayofcountries[$numerofcountries][1] ) - 1; $nocities++ ) {
+						if ( $citycode == $arrayofcountries[$numerofcountries][1][$nocities]['code'] ) {
+							echo '<option selected="selected" value="' . $arrayofcountries[$numerofcountries][1][$nocities]['code'] . '">' . $arrayofcountries[$numerofcountries][1][$nocities]['name'] . '</option>';
+						} else {
+							echo '<option value="' . $arrayofcountries[$numerofcountries][1][$nocities]['code'] . '">' . $arrayofcountries[$numerofcountries][1][$nocities]['name'] . '</option>';
+						}
+					}
+					
+					?>
+				</select>
+				<?php
+			}
+		}
+		echo '<p>' . __( 'To add cities to a country please follow the template in the xml folder', 'countries' ) . '</p>';
+	}
+	
+	/**
+	 * Render Notes Meta Box
+	 */
+	function render_notes_meta() {
+		global $post;
+		
+		$custom = get_post_custom( $post->ID );
+		$details = $custom["country_details"][0];
+		?>
+		<textarea cols="50" rows="5" name="country_details"><?php echo $details; ?></textarea>
+		<?php
+	}
+	
+	/**
+	 * Countries orderby
 	 *
 	 * Forces countries to default to order alphabetically in the admin rather
 	 * than by publish date. Does this as priority 0 so that by default any other
 	 * filters will override this.
 	 *
-	 * Should we do this by default elsewhere, not just the admin?
-	 * 
-	 * @since 1.0.x
+	 * @todo Should we do this by default elsewhere, not just the admin?
 	 *
-	 * @param $order (string) The SQL order statement.
+	 * @param string $order The SQL order statement.
 	 */
-	function countries_posts_orderby( $order ) {
-	
+	function countries_orderby( $order ) {
 		global $wpdb;
-		
 		if ( get_query_var( 'post_type' ) == 'countries' ) {
 			return "$wpdb->posts.post_title ASC";
 		}
-		
 		return $order;
-		
 	}
-	add_filter( 'posts_orderby', 'countries_posts_orderby', 0, 1 );
 	
-	
+	/**
+	 * Load Countries from XML
+	 */
+	function load_countries_from_xml() {
+		$doc = new DOMDocument();
+		$doc->load( WP_CONTENT_DIR . '/plugins/countries/xml/countrylist.xml' );
+		
+		$rootnode = $doc->getElementsByTagName( 'countries' )->item( 0 );
+		
+		$arrayofcountries = array();
+		$arrayposition = 0;
+		foreach ( $rootnode->getElementsByTagName( 'country' ) as $countryitem ) {
+			
+			$arrayattributes = array();
+			if ( $countryitem->hasAttributes() ) {
+				$xmlattributes = $countryitem->attributes;
+				if ( ! is_null( $xmlattributes ) ) {
+					foreach ( $xmlattributes as $index => $attr ) {
+						$arrayattributes[$attr->name] = $attr->value;
+					}
+				}
+			}
+			$arrayofcountries[$arrayposition][0] = $arrayattributes;
+			
+			$citysubnodes = array();
+			if ( $countryitem->childNodes->length ) {
+				$cityarrpos = 0;
+				foreach ( $countryitem->childNodes as $city ) {
+					
+					//echo count( $city->attributes ) . ',';
+					$cityarrayattributes = array();
+					if ( $city->hasAttributes() ) {
+						//echo 'has attributes';
+						
+						$xmlattributes = $city->attributes;
+						if ( ! is_null( $xmlattributes ) ) {
+							foreach ( $xmlattributes as $index => $attr ) {
+								//echo $attr->value;
+								$cityarrayattributes[$attr->name] = $attr->value;
+								//echo $cityarrayattributes[$attr->name] . 'xx';
+								//echo $attr->value;
+							}
+						}
+						
+						$citysubnodes[$cityarrpos] = $cityarrayattributes;
+						$cityarrpos++;
+					}
+					
+				}
+			}
+			
+			$arrayofcountries[$arrayposition][1] = $citysubnodes;
+			//echo count( $arrayofcountries[$arrayposition][1] );
+			$arrayposition++;
+		}
+		
+		return $arrayofcountries;
+	}
 	
 }
 
+global $countries;
+$countries = new Countries();
 
 /**
- * Create custom post type and custom taxonomy
- * http://codex.wordpress.org/Function_Reference/register_post_type
+ * Load Countries from XML
+ *
+ * @todo Deprecate this function now that it has been moved to class.
  */
-function country_init() {
-	$labels = array(
-		'name'               => _x( 'Countries', 'post type general name' ),
-		'singular_name'      => _x( 'Country', 'post type singular name' ),
-		'add_new'            => _x( 'Add New', 'Country' ),
-		'add_new_item'       => __( 'Add New Country' ),
-		'edit_item'          => __( 'Edit Country' ),
-		'new_item'           => __( 'New Country' ),
-		'view_item'          => __( 'View Country' ),
-		'search_items'       => __( 'Search Countries' ),
-		'not_found'          =>  __( 'No Countries found' ),
-		'not_found_in_trash' => __( 'No Countries found in Trash' ), 
-		'parent_item_colon'  => '',
-		'menu_name'          => __( 'Countries' )
-	);
-	$args = array(
-		'labels'               => $labels,
-		'public'               => true,
-		'publicly_queryable'   => true,
-		'show_ui'              => true,  
-		'query_var'            => true,
-		'rewrite'              => true,
-		'capability_type'      => 'post',
-		'hierarchical'         => false,
-		'show_in_nav_menus'    => false,
-		'menu_position'        => null,
-		'menu_icon'            => plugins_url( 'images/menu-icon.png', __FILE__ ),
-		'supports'             => array( 'title' ),
-		'visible'              => true,
-		'register_meta_box_cb' => 'country_meta_boxes'
-	);
-	register_post_type( 'countries', $args );
+function loadCountriesFromXML() {
+	global $countries;
+	return $countries->load_countries_from_xml();
 }
+
 
 
 ////Function to customise table headings
@@ -150,241 +382,29 @@ function country_init() {
 //
 //
 //}
-//creates custom meta boxes
-function country_meta_boxes() {	
 
-	add_meta_box("countries_meta", "Quick link - All Countries", "render_countries_meta", "countries", "side", "low");
-	add_meta_box("countrycode_meta", "Country code", "render_countrycode_meta", "countries", "normal", "low");
-	add_meta_box("flags_meta", "Country Flag", "render_flags_meta", "countries", "normal", "low");
-	add_meta_box("currency_meta", "Country Currency", "render_currency", "countries", "normal", "low");
-	add_meta_box("cities_meta", "Country Cities", "render_cities", "countries", "normal", "low");
-	add_meta_box("details_meta", "Country Notes", "render_details", "countries", "normal", "low");
-}
-
- function loadCountriesFromXML()
-	{
-		$doc = new DOMDocument();
-		$doc->load(WP_CONTENT_DIR.'/plugins/countries/xml/countrylist.xml' );
-		
-		$rootnode = $doc->getElementsByTagName('countries')->item(0); 
-		
-		$arrayofcountries = array(); 
-		$arrayposition = 0;
-		foreach ($rootnode->getElementsByTagName('country') as $countryitem) {
-		
-			
-		
-			$arrayattributes = array();
-            if($countryitem->hasAttributes()){
-		          $xmlattributes = $countryitem->attributes;
-		          if(!is_null($xmlattributes)){
-		            
-		              foreach ($xmlattributes as $index=>$attr) {
-		                  $arrayattributes[$attr->name] = $attr->value;
-		              }
-		          }
-		      }
-		      $arrayofcountries[$arrayposition][0] = $arrayattributes;
-		
-			
-		     $citysubnodes = array();
-		        if($countryitem->childNodes->length) {
-		        $cityarrpos = 0;
-		            foreach($countryitem->childNodes as $city) {
-
-		            //echo count($city->attributes) . ',';
-		            $cityarrayattributes = array();
-				            if($city->hasAttributes()){
-				          //  echo 'has attributes'; 
-				            
-						          $xmlattributes = $city->attributes;
-						          if(!is_null($xmlattributes)){
-						            
-						              foreach ($xmlattributes as $index=>$attr) {
-						              	//echo $attr->value;
-						                  $cityarrayattributes[$attr->name] = $attr->value;
-						                 // echo $cityarrayattributes[$attr->name] . 'xx';
-						                 // echo $attr->value;
-						              }
-						          }
-						          
-						          $citysubnodes[$cityarrpos] = $cityarrayattributes;
-		   						$cityarrpos++;
-						      }
-				
-		            }
-		        }
-		        
-		        
-		        
-		        $arrayofcountries[$arrayposition][1] = $citysubnodes;  
-		       // echo count($arrayofcountries[$arrayposition][1]);
-		       $arrayposition++;
-		}
-		
-	
-		return $arrayofcountries;
-	}
 	
 	
 
-///Displays the Country code
-function render_countrycode_meta() {
-  global $post;
 
-  $custom = get_post_custom($post->ID); 
-    $country_code = $custom['country_code'][0];
-	?>
-	<input name="country_code" value="<?php echo $country_code ?>"/></p>
-	<?php 
-}
 
-///Displays the Country currency
-function render_currency() {
-  global $post;
 
-  $custom = get_post_custom($post->ID); 
-    $currency = $custom['country_currency'][0];
-    $currencyCode= $custom['currency_code'][0];
-    $currencySymbol= $custom['currency_symbol'][0];
-    $currencySymbolhtml= $custom['currency_html'][0];
-    //$currency = loadCurrencyFromXML();
-
-	?>
-	<p><label for="country_symbol" style="width:145px; margin-top:6px; float:left; display: block"><strong>Currency: </strong></label><input class="regular-text" name="country_currency" value="<?php echo $currency?>" /></p>
-	<p><label for="country_symbol" style="width:145px; margin-top:6px; float:left; display: block"><strong>Currency Code: </strong></label><input name="currency_code" value="<?php echo $currencyCode?>" /></p>
-	<p><label for="country_symbol" style="width:145px; margin-top:6px; float:left; display: block"><strong>Currency Symbol: </strong></label><input name="currency_symbol" value="<?php echo $currencySymbol?>"/></p>
-	<p><label for="country_html" style=" width:145px; margin-top:6px; float:left; display: block""><strong>Currency Symbol (HTML): </strong></label><input name="currency_html" style=" -moz-border-radius:4px 4px 4px 4px;" value="<?php echo htmlentities($currencySymbolhtml)?>" /></p>
-	
-	
-	<?php 
-}
 
 ////Displays the DDL of countries
 
 
 ////Displays the DDL of countries
-function render_cities() {
-global $post;
-$custom = get_post_custom($post->ID); 
-$countrycode = $custom["country_code"][0];
-$citycode = $custom["city_list"][0];
 
-$arrayofcountries = loadCountriesFromXML();
-
-
-for ($numerofcountries = 0; $numerofcountries <= count($arrayofcountries) -1 ; $numerofcountries++)
-{
-	if ($countrycode == $arrayofcountries[$numerofcountries][0]['countrycode'] && count($arrayofcountries[$numerofcountries][1]) > 0) //if the country has cities
-	{
-
-		?>
-		<select name="city_list" style="width:265px;">
-		<?php
-	
-		for ($nocities = 0; $nocities <= count($arrayofcountries[$numerofcountries][1]) -1; $nocities++)
-		{
-			if ($citycode == $arrayofcountries[$numerofcountries][1][$nocities]['code'])
-			{
-				echo '<option selected="selected" value="' . $arrayofcountries[$numerofcountries][1][$nocities]['code'] . '">' . $arrayofcountries[$numerofcountries][1][$nocities]['name'] . '</option>';
-			}
-			else
-			{
-				echo '<option value="' . $arrayofcountries[$numerofcountries][1][$nocities]['code'] . '">' . $arrayofcountries[$numerofcountries][1][$nocities]['name'] . '</option>';
-			}
-		}
-	
-		?>
-		</select>
-		<?php
-		//echo "<p>If you would like to add more cities for this country follow the template in the xml folder</p>";
-	}
-
-
-
-}
-
-echo "<p>To add cities to a country please follow the template in the xml folder</p>";
-}
 
 	
-////Displays the DDL of countries
-function render_countries_meta() {
-	global $post;
-	
-	$custom = get_post_custom($post->ID); 
-	$countrylist = $custom["country_list"][0];
-	$arrayofcountries = loadCountriesFromXML();
-	
-	?>
-	 <select name="country_list" style="width:265px;">
-	<?php 
-	
-	for ($numerofcountries = 0; $numerofcountries <= count($arrayofcountries) -1 ; $numerofcountries++)
-	{
-		
-		if ($countrycode == $arrayofcountries[$numerofcountries][0]['countrycode'])
-		{
-		 echo '<option selected="selected" value="' . $arrayofcountries[$numerofcountries][0]['countrycode'] . '">' . $arrayofcountries[$numerofcountries][0]['countryname'] . '</option>';
-		}
-		else
-		{
-			echo '<option value="' . $arrayofcountries[$numerofcountries][0]['countrycode'] . '">' . $arrayofcountries[$numerofcountries][0]['countryname'] . '</option>';
-		}
-	} ?>
-	 </select>
-	<?php
-	echo "<p>Quick links to countries are in progress!</p>";
-}
 
-//Displays the flags
-function render_flags_meta() {
-	global $post;
 
-	$custom = get_post_custom($post->ID); 
-	$flag = $custom["country_code"][0];
-		
-	?><img name="flags" src=" <?php echo WP_CONTENT_URL.'/plugins/countries/flags/'.strtolower($flag).'.gif' ?>" />
-	<?php 
-	}
 
-///Displays the details box
-function render_details() {
-  global $post;
 
-  $custom = get_post_custom($post->ID); 
-  $details = $custom["country_details"][0];
-	?>
-	<textarea cols="50" rows="5" name="country_details"><?php echo $details;?></textarea>
-	<?php 
 
-  
-}
 
-//saves metabox updates
-function save_details(){
-global $post;
- 
-	update_post_meta($post->ID, "country_code", $_POST["country_code"]);
-	update_post_meta($post->ID, "country_list", $_POST["country_list"]);
-	update_post_meta($post->ID, "flags", $_POST["flags"]);
-	update_post_meta($post->ID, "country_details", $_POST["country_details"]);
-	update_post_meta($post->ID, "country_currency", $_POST["country_currency"]);
-	update_post_meta($post->ID, "currency_symbol", $_POST["currency_symbol"]);
-	update_post_meta($post->ID, "currency_html", $_POST["currency_html"]);
-	update_post_meta($post->ID, "currency_code", $_POST["currency_code"]);
-	update_post_meta($post->ID, "city_list", $_POST["city_list"]);
 
-}
 
-//hides posts on main page
-function hide_posts()
-{
-	global $query_string;
-	if (!is_admin()){
-		query_posts($query_string . "&post_type!=countries");
-	}
-}
 
 ///this function deletes all countries from DB when plug in is deactivated xml query correct in php my admin but not in wp... temp table not supported maybe?
 //function flushDB(){
@@ -408,9 +428,6 @@ function hide_posts()
 
 
 //Action hooks, attaching functions to application events
-	add_action('init', 'country_init');
-	add_action('save_post', 'save_details');
-	add_action("parse_request", "hide_posts");
 	//register_deactivation_hook( __FILE__, 'flushDB' );
 	//add_filter("manage_edit-custompost_columns", "custompostColumns");
 	//add_action("manage_posts_custom_column", "custonpostRowValues");
