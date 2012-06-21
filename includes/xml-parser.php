@@ -3,9 +3,9 @@
 class Countries_XML_Parser {
 	
 	// Loads countries from xml file
-	function loadCountriesFromXML() {
+	function load_countries_from_xml() {
 		$doc = new DOMDocument();
-		$doc->load( WP_CONTENT_DIR . '/plugins/countries/xml/countrylist.xml' );
+		$doc->load( plugin_dir_path( dirname( __FILE__ ) ) . 'xml/countrylist.xml' );
 		
 		$rootnode = $doc->getElementsByTagName( 'countries' )->item( 0 );
 		
@@ -68,9 +68,10 @@ class Countries_XML_Parser {
 	}
 	
 	// Writing countires to the DB
-	function SaveInitialCountries() {
-		
-		$arrayofcountries = $this->loadCountriesFromXML();
+	function save_initial_countries() {
+		$import_count = 0;
+		$the_content = '';
+		$arrayofcountries = $this->load_countries_from_xml();
 		for ( $numerofcountries = 0; $numerofcountries <= count( $arrayofcountries ) - 1; $numerofcountries++ ) {
 			
 			$post = $this->get_post_by_title( $arrayofcountries[$numerofcountries][0]['countryname'], ARRAY_A );
@@ -83,19 +84,35 @@ class Countries_XML_Parser {
 				$insert['post_author'] = 1;
 				$insert['post_type'] = 'countries';
 				
-				$the_content .= "<h1>IMPORTED</h1><p>Country Name: " . $arrayofcountries[$numerofcountries][0]['countryname'] . "<br />Country Code: " . $arrayofcountries[$numerofcountries][0]['countrycode'] . "</p><hr />";
+				if ( $import_count == 0 ) {
+					$the_content .= '<p><strong>' . __( 'Importing...', 'countries' ) . '</strong></p>';
+				}
+				$the_content .= '<div>' . $arrayofcountries[$numerofcountries][0]['countryname'] . ' (' . $arrayofcountries[$numerofcountries][0]['countrycode'] . ') - <em>' . __( 'Imported', 'countries' ) . '</em></div>';
 				
 				$insertedPostId = wp_insert_post( $insert );
-				update_post_meta( $insertedPostId, "country_code", $arrayofcountries[$numerofcountries][0]['countrycode'] );
-				update_post_meta( $insertedPostId, "country_currency", $arrayofcountries[$numerofcountries][0]['monetarylongname'] );
-				update_post_meta( $insertedPostId, "currency_symbol", $arrayofcountries[$numerofcountries][0]['monetarysymbol'] );
-				update_post_meta( $insertedPostId, "currency_html", $arrayofcountries[$numerofcountries][0]['monetaryhtmlcode'] );
-				update_post_meta( $insertedPostId, "currency_code", $arrayofcountries[$numerofcountries][0]['monetarycode'] );
+				if ( isset( $arrayofcountries[$numerofcountries][0]['countrycode'] ) )
+					update_post_meta( $insertedPostId, "country_code", $arrayofcountries[$numerofcountries][0]['countrycode'] );
+				if ( isset( $arrayofcountries[$numerofcountries][0]['monetarylongname'] ) )
+					update_post_meta( $insertedPostId, "country_currency", $arrayofcountries[$numerofcountries][0]['monetarylongname'] );
+				if ( isset( $arrayofcountries[$numerofcountries][0]['monetarysymbol'] ) )
+					update_post_meta( $insertedPostId, "currency_symbol", $arrayofcountries[$numerofcountries][0]['monetarysymbol'] );
+				if ( isset( $arrayofcountries[$numerofcountries][0]['monetaryhtmlcode'] ) )
+					update_post_meta( $insertedPostId, "currency_html", $arrayofcountries[$numerofcountries][0]['monetaryhtmlcode'] );
+				if ( isset( $arrayofcountries[$numerofcountries][0]['monetarycode'] ) )
+					update_post_meta( $insertedPostId, "currency_code", $arrayofcountries[$numerofcountries][0]['monetarycode'] );
+				
+				$import_count++;
 			}
 		
 		}
 		
-		echo "COUNTRIES IMPORTER" . print_r( $the_content, true );
+		if ( $import_count > 0 ) {
+			$the_content .= '<p><strong>' . sprintf( __( '%s countries updated.', 'countries' ), $import_count ) . '</strong></p>';
+		} else {
+			$the_content .= '<p>' . __( 'No countries require updating.', 'countries' ) . '</p>';
+		}
+		
+		echo $the_content;
 	}
 
 }

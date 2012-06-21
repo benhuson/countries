@@ -93,7 +93,7 @@ class Countries {
 	 * Adds XML Importer admin page.
 	 */
 	function admin_menu() {
-		add_submenu_page( 'edit.php?post_type=countries', __( 'Countries Importer', 'countries' ), __( 'Importer', 'countries' ), 7, 'countries-importer-page', array( $this, 'importer_page' ) );
+		add_submenu_page( 'edit.php?post_type=countries', __( 'Countries Importer', 'countries' ), __( 'Importer', 'countries' ), 'manage_options', 'countries-importer-page', array( $this, 'importer_page' ) );
 	}
 	
 	/**
@@ -105,25 +105,40 @@ class Countries {
 		?>
 		<div class="wrap">
 			<h2><?php _e( 'Country Importer', 'countries' ); ?></h2>
-			<?php $xml->SaveInitialCountries(); ?>
+			<?php $xml->save_initial_countries(); ?>
 		</div>
 		<?php
 	}
 	
 	/**
 	 * Save Country Meta Box Details
+	 *
+	 * @param int $post_id Post ID.
 	 */
-	function save_details(){
+	function save_details( $post_id ) {
 		global $post;
-		update_post_meta( $post->ID, 'country_code', $_POST['country_code'] );
-		update_post_meta( $post->ID, 'country_list', $_POST['country_list'] );
-		update_post_meta( $post->ID, 'flags', $_POST['flags'] );
-		update_post_meta( $post->ID, 'country_details', $_POST['country_details'] );
-		update_post_meta( $post->ID, 'country_currency', $_POST['country_currency'] );
-		update_post_meta( $post->ID, 'currency_symbol', $_POST['currency_symbol'] );
-		update_post_meta( $post->ID, 'currency_html', $_POST['currency_html'] );
-		update_post_meta( $post->ID, 'currency_code', $_POST['currency_code'] );
-		update_post_meta( $post->ID, 'city_list', $_POST['city_list'] );
+		
+		$post_vars = shortcode_atts( array(
+			'country_code'     => '',
+			'country_list'     => '',
+			'flags'            => '',
+			'country_details'  => '',
+			'country_currency' => '',
+			'currency_symbol'  => '',
+			'currency_html'    => '',
+			'currency_code'    => '',
+			'city_list'        => ''
+		), $_POST );
+		
+		update_post_meta( $post_id, 'country_code', $post_vars['country_code'] );
+		update_post_meta( $post_id, 'country_list', $post_vars['country_list'] );
+		update_post_meta( $post_id, 'flags', $post_vars['flags'] );
+		update_post_meta( $post_id, 'country_details', $post_vars['country_details'] );
+		update_post_meta( $post_id, 'country_currency', $post_vars['country_currency'] );
+		update_post_meta( $post_id, 'currency_symbol', $post_vars['currency_symbol'] );
+		update_post_meta( $post_id, 'currency_html', $post_vars['currency_html'] );
+		update_post_meta( $post_id, 'currency_code', $post_vars['currency_code'] );
+		update_post_meta( $post_id, 'city_list', $post_vars['city_list'] );
 	}
 	
 	/**
@@ -132,21 +147,16 @@ class Countries {
 	 * Displays the dropdown list of countries.
 	 */
 	function render_countries_meta() {
-		global $post;
-		
-		$custom = get_post_custom( $post->ID );
-		$countrylist = $custom['country_list'][0];
 		$arrayofcountries = $this->load_countries_from_xml();
-		
 		?>
 		<select name="country_list" style="width:265px;">
 			<?php
-			for ( $numerofcountries = 0; $numerofcountries <= count( $arrayofcountries ) -1; $numerofcountries++ ) {
-				if ( $countrycode == $arrayofcountries[$numerofcountries][0]['countrycode'] ) {
-					echo '<option selected="selected" value="' . $arrayofcountries[$numerofcountries][0]['countrycode'] . '">' . $arrayofcountries[$numerofcountries][0]['countryname'] . '</option>';
-				} else {
-					echo '<option value="' . $arrayofcountries[$numerofcountries][0]['countrycode'] . '">' . $arrayofcountries[$numerofcountries][0]['countryname'] . '</option>';
-				}
+			for ( $numerofcountries = 0; $numerofcountries <= count( $arrayofcountries ) - 1; $numerofcountries++ ) {
+				$values = wp_parse_args( $arrayofcountries[$numerofcountries][0], array(
+					'countrycode' => '',
+					'countryname' => ''
+				) );
+				echo '<option ' . selected( $values['countrycode'], $values['countrycode'], false ) . ' value="' . $values['countrycode'] . '">' . $values['countryname'] . '</option>';
 			}
 			?>
 		</select>
@@ -159,9 +169,7 @@ class Countries {
 	 */
 	function render_countrycode_meta() {
 		global $post;
-		
-		$custom = get_post_custom( $post->ID );
-		$country_code = $custom['country_code'][0];
+		$country_code = get_post_meta( $post->ID, 'country_code', true );
 		?>
 		<input name="country_code" value="<?php echo $country_code; ?>" />
 		<?php
@@ -172,12 +180,15 @@ class Countries {
 	 */
 	function render_flags_meta() {
 		global $post;
-		
-		$custom = get_post_custom( $post->ID );
-		$flag = $custom["country_code"][0];
-		?>
-		<img name="flags" src="<?php echo plugins_url( 'flags/' . strtolower( $flag ) . '.gif', __FILE__ ); ?>" />
-		<?php
+		$flag = get_post_meta( $post->ID, 'country_code', true );
+		$filepath = 'flags/' . strtolower( $flag ) . '.gif';
+		if ( is_file( plugin_dir_path( __FILE__ ) . $filepath ) ) {
+			?>
+			<img name="flags" src="<?php echo plugins_url( $filepath, __FILE__ ); ?>" />
+			<?php
+		} else {
+			echo '<p>' . __( 'Flag image not available.' ) . '</p>';
+		}
 	}
 	
 	/**
@@ -186,15 +197,14 @@ class Countries {
 	function render_currency_meta() {
 		global $post;
 		
-		$custom = get_post_custom( $post->ID );
-		$currency = $custom['country_currency'][0];
-		$currency_code = $custom['currency_code'][0];
-		$currency_symbol = $custom['currency_symbol'][0];
-		$currency_symbol_html = $custom['currency_html'][0];
-		//$currency = loadCurrencyFromXML();
+		$currency = get_post_meta( $post->ID, 'country_currency', true );
+		$currency_code = get_post_meta( $post->ID, 'currency_code', true );
+		$currency_symbol = get_post_meta( $post->ID, 'currency_symbol', true );
+		$currency_symbol_html = get_post_meta( $post->ID, 'currency_html', true );
+		//$currency = $this->load_countries_from_xml();
 		
 		?>
-		<p><label for="country_symbol" style="width:145px; margin-top:6px; float:left; display: block"><?php _e( 'Currency', 'countries' ); ?></label> <input class="regular-text" name="country_currency" value="<?php echo $currencyl ?>" /></p>
+		<p><label for="country_symbol" style="width:145px; margin-top:6px; float:left; display: block"><?php _e( 'Currency', 'countries' ); ?></label> <input class="regular-text" name="country_currency" value="<?php echo $currency; ?>" /></p>
 		<p><label for="country_symbol" style="width:145px; margin-top:6px; float:left; display: block"><?php _e( 'Currency Code', 'countries' ); ?></label> <input name="currency_code" value="<?php echo $currency_code; ?>" /></p>
 		<p><label for="country_symbol" style="width:145px; margin-top:6px; float:left; display: block"><?php _e( 'Currency Symbol', 'countries' ); ?></label> <input name="currency_symbol" value="<?php echo $currency_symbol; ?>" /></p>
 		<p><label for="country_html" style=" width:145px; margin-top:6px; float:left; display: block""><?php _e( 'Currency Symbol (HTML)', 'countries' ); ?></label> <input name="currency_html" style="-moz-border-radius:4px 4px 4px 4px;" value="<?php echo htmlentities( $currency_symbol_html ); ?>" /></p>
@@ -207,27 +217,26 @@ class Countries {
 	function render_cities_meta() {
 		global $post;
 		
-		$custom = get_post_custom( $post->ID );
-		$countrycode = $custom["country_code"][0];
-		$citycode = $custom["city_list"][0];
-		
+		$countrycode = get_post_meta( $post->ID, 'country_code', true );
+		$citycode = get_post_meta( $post->ID, 'city_list', true );
 		$arrayofcountries = $this->load_countries_from_xml();
 		
 		for ( $numerofcountries = 0; $numerofcountries <= count( $arrayofcountries ) - 1; $numerofcountries++ ) {
 			// If the country has cities...
-			if ( $countrycode == $arrayofcountries[$numerofcountries][0]['countrycode'] && count( $arrayofcountries[$numerofcountries][1] ) > 0 ) {
+			$values = wp_parse_args( $arrayofcountries[$numerofcountries][0], array(
+				'countrycode' => ''
+			) );
+			if ( $countrycode == $values['countrycode'] && count( $arrayofcountries[$numerofcountries][1] ) > 0 ) {
 				?>
 				<select name="city_list" style="width:265px;">
 					<?php
-					
 					for ( $nocities = 0; $nocities <= count( $arrayofcountries[$numerofcountries][1] ) - 1; $nocities++ ) {
-						if ( $citycode == $arrayofcountries[$numerofcountries][1][$nocities]['code'] ) {
-							echo '<option selected="selected" value="' . $arrayofcountries[$numerofcountries][1][$nocities]['code'] . '">' . $arrayofcountries[$numerofcountries][1][$nocities]['name'] . '</option>';
-						} else {
-							echo '<option value="' . $arrayofcountries[$numerofcountries][1][$nocities]['code'] . '">' . $arrayofcountries[$numerofcountries][1][$nocities]['name'] . '</option>';
-						}
+						$cities_values = wp_parse_args( $arrayofcountries[$numerofcountries][1][$nocities], array(
+							'code' => '',
+							'name' => ''
+						) );
+						echo '<option ' . selected( $citycode, $cities_values['code'], false ) . ' value="' . $cities_values['code'] . '">' . $cities_values['name'] . '</option>';
 					}
-					
 					?>
 				</select>
 				<?php
@@ -241,9 +250,7 @@ class Countries {
 	 */
 	function render_notes_meta() {
 		global $post;
-		
-		$custom = get_post_custom( $post->ID );
-		$details = $custom["country_details"][0];
+		$details = get_post_meta( $post->ID, 'country_details', true );
 		?>
 		<textarea cols="50" rows="5" name="country_details"><?php echo $details; ?></textarea>
 		<?php
