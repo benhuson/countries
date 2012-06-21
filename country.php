@@ -136,7 +136,7 @@ class Countries {
 		
 		$custom = get_post_custom( $post->ID );
 		$countrylist = $custom['country_list'][0];
-		$arrayofcountries = load_countries_from_xml();
+		$arrayofcountries = $this->load_countries_from_xml();
 		
 		?>
 		<select name="country_list" style="width:265px;">
@@ -211,7 +211,7 @@ class Countries {
 		$countrycode = $custom["country_code"][0];
 		$citycode = $custom["city_list"][0];
 		
-		$arrayofcountries = load_countries_from_xml();
+		$arrayofcountries = $this->load_countries_from_xml();
 		
 		for ( $numerofcountries = 0; $numerofcountries <= count( $arrayofcountries ) - 1; $numerofcountries++ ) {
 			// If the country has cities...
