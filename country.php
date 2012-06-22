@@ -280,7 +280,7 @@ class Countries {
 	 */
 	function load_countries_from_xml() {
 		$doc = new DOMDocument();
-		$doc->load( WP_CONTENT_DIR . '/plugins/countries/xml/countrylist.xml' );
+		$doc->load( plugin_dir_path( __FILE__ ) . 'xml/countrylist.xml' );
 		
 		$rootnode = $doc->getElementsByTagName( 'countries' )->item( 0 );
 		
