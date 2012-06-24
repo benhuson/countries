@@ -17,7 +17,6 @@ class Countries {
 	 */
 	function Countries() {
 		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'parse_request', array( $this, 'hide_posts' ) );
 		if ( is_admin() ) {
 			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 			add_action( 'save_post', array( $this, 'save_details' ) );
@@ -47,8 +46,10 @@ class Countries {
 		$args = array(
 			'labels'               => $labels,
 			'public'               => true,
+			'exclude_from_search'  => true,
 			'publicly_queryable'   => true,
-			'show_ui'              => true,  
+			'show_ui'              => true,
+			'show_in_nav_menus'    => false, 
 			'query_var'            => true,
 			'rewrite'              => true,
 			'capability_type'      => 'post',
@@ -73,18 +74,6 @@ class Countries {
 		add_meta_box( 'currency_meta', __( 'Country Currency', 'countries' ), array( $this, 'render_currency_meta' ), 'countries', 'normal', 'low' );
 		add_meta_box( 'cities_meta', __( 'Country Cities', 'countries' ), array( $this, 'render_cities_meta' ), 'countries', 'normal', 'low' );
 		add_meta_box( 'details_meta', __( 'Country Notes', 'countries' ), array( $this, 'render_notes_meta' ), 'countries', 'normal', 'low' );
-	}
-	
-	/**
-	 * Hides posts on main page
-	 *
-	 * @todo Is there a better way to exclude?
-	 */
-	function hide_posts() {
-		global $query_string;
-		if ( ! is_admin() ) {
-			query_posts( $query_string . '&post_type!=countries' );
-		}
 	}
 	
 	/**
