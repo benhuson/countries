@@ -4,7 +4,7 @@
 Plugin Name: Countries
 Plugin URI: http://wordpress.org/extend/plugins/countries/
 Description: Import and manage a list of countries into your WordPress site as Custom Post Types.
-Version: 1.0.1
+Version: 1.1
 Author: Instinct
 Author URI: http://getshopped.org
 License: GPL2

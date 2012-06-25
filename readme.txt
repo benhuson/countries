@@ -3,7 +3,7 @@ Contributors: mufasa, husobj
 Tags: countries, country
 Requires at least: 3.0
 Tested up to: 3.4
-Stable tag: 1.0.1
+Stable tag: 1.1
 License: GPL2
 
 Import and manage a list of countries into your WordPress site as Custom Post Types.
@@ -26,6 +26,12 @@ Essentially the goal for a Plugin like this is for it to become a core plugin th
 4. To import default countries visit the Countries Importer in the admin.
 
 == Changelog ==
+
+= 1.1 =
+
+* Fixed issue of pages not displaying the correct content.
+* Fix lots of warnings and errors.
+* Code now restructured as classes.
 
 = 1.0.1 =
 
